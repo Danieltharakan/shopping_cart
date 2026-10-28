@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #faf8f5;
+  --color-ink: #1b1a18;
+  --color-mute: #8b857b;
+  --color-line: #e8e3da;
+  --color-tint: #f0ece4;
+  --color-brass: #a9884f;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center bg-ink px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-paper transition hover:bg-brass disabled:cursor-not-allowed disabled:bg-line disabled:text-mute;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center border border-ink px-6 py-3 text-[11px] uppercase tracking-[0.2em] transition hover:bg-ink hover:text-paper disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .field {
+    @apply w-full border-b border-line bg-transparent py-2 text-sm outline-none transition focus:border-ink;
+  }
+  .eyebrow {
+    @apply text-[11px] uppercase tracking-[0.25em] text-mute;
+  }
+  .display {
+    @apply font-display font-medium leading-[1.05] tracking-tight;
+  }
+  .skeleton {
+    @apply animate-pulse bg-tint;
+  }
+}
